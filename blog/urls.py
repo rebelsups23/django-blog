@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import index
+from .views import blogList, index
 
 urlpatterns = [
-    path('', index, name="blogs.index")
+    path('', index, name="blogs.index"),
+    path('all/', blogList, name="blogs.all")
 ]
