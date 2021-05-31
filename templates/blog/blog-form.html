@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="bg-grey-lighter mt-20">
+            <div class="container max-w-screen-xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 class="mb-8 text-3xl text-center">New Blog</h1>
+
+                    {% for field in form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+
+                    <button
+                        type="submit"
+                        class="w-full text-center py-3 rounded bg-blue-900 hover:bg-blue-700 text-white hover:bg-green-dark focus:outline-none mt-8"
+                    >Add blog</button>
+                </div>
+            </div>
+        </div>
+</form>
+{% endblock %}
