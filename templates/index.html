@@ -4,19 +4,18 @@
 
 {% block content %}
     <div class="my-10 max-w-screen-xl mx-auto">
-        <h1 class="text-4xl">Welcome to the Website!!!</h1>
 
-        <div class="carousel mt-10 relative shadow-2xl bg-white">
-            <div class="carousel-inner relative overflow-hidden w-full">
+        <div class="carousel mt-10 relative w-5/6 mx-auto shadow-2xl">
+            <div class="carousel-inner relative overflow-hidden">
             <!--Slide 1-->
                 <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
                 <div class="carousel-item absolute opacity-0">
                     <div class="block">
-                        <img src="{% static 'img/1.png' %}" alt="">
+                        <img class="" src="{% static 'img/1.png' %}" alt="">
                     </div>
                 </div>
-                <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+                <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
                 
                 <!--Slide 2-->
                 <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
@@ -25,8 +24,8 @@
                         <img src="{% static 'img/2.png' %}" alt="">
                     </div>
                 </div>
-                <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label> 
+                <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label> 
                 
                 <!--Slide 3-->
                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
@@ -35,23 +34,25 @@
                         <img src="{% static 'img/3.png' %}" alt="">
                     </div>
                 </div>
-                <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
-                <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-purple-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+                <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+                <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-400 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
 
                 <!-- Add additional indicators for each slide-->
                 <ol class="carousel-indicators">
                     <li class="inline-block mr-3">
-                        <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-purple-400">•</label>
+                        <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-400">•</label>
                     </li>
                     <li class="inline-block mr-3">
-                        <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-purple-400">•</label>
+                        <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-400">•</label>
                     </li>
                     <li class="inline-block mr-3">
-                        <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-purple-400">•</label>
+                        <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-400">•</label>
                     </li>
                 </ol>
                 
             </div>
         </div>
+
+        <h3 class="mt-20 text-center mb-0 text-5xl">Explore our <a class="text-blue-900 underline" href="{% url 'blogs.index' %}">blogs.</a></h3>
     </div>
 {% endblock content %}

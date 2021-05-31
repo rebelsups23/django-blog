@@ -3,8 +3,9 @@ from .models import Post
 
 # Create your views here.
 def index(request):
+        active = "blog-index";
         posts = Post.objects.all().order_by("-id")[:3]
-        return render(request, 'blog/index.html', {'posts': posts})
+        return render(request, 'blog/index.html', {'posts': posts, 'active': active})
 
 def blogList(request):
         posts = Post.objects.all()

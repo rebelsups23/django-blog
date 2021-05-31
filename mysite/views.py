@@ -1,4 +1,42 @@
-from django.shortcuts import render
+from django.contrib import auth
+from django.contrib.auth import login, authenticate, logout
+from django.http.response import HttpResponse
+from django.shortcuts import render, redirect
+from .forms import loginForm, signupForm
 
 def index(request):
-        return render(request, 'index.html', {})
+        active = "index"
+        return render(request, 'index.html', {'active': active})
+
+def signup(request):
+    if request.method == 'POST':
+        form = signupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+    else:
+        form = signupForm()
+    return render(request, 'signup.html', {'form': form})
+
+def signin(request):
+    if request.method == 'POST':
+        form = loginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=raw_password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+    else:
+        form = loginForm()
+    return render(request, 'login.html', {'form': form})
+
+def signout(request):
+        logout(request)
+        return redirect('index')
