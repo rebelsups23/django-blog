@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup/', signup, name="signup"),
     path('login/', signin, name="login"),
     path('logout/', signout, name="logout"),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:

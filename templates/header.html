@@ -6,6 +6,7 @@
     text-center
     bg-white bg-purple-300
     text-gray-800
+    z-10
   "
 >
   <nav class="max-w-screen-xl mx-auto flex justify-between py-4">
@@ -19,12 +20,12 @@
     <div>
       <a
         href="{% url 'index' %}"
-        class="text-lg no-underline text-grey-darkest hover:text-blue-900 mx-3 {% if active == "index" %}border-blue-900 text-blue-900 pb-1 border-b-2{% endif %}"
+        class="text-lg no-underline text-grey-darkest hover:text-blue-700 mx-3 {% if active == "index" %}border-blue-700 text-blue-700 pb-1 border-b-2{% endif %}"
         >Home</a
       >
       <a
         href="{% url 'blogs.index' %}"
-        class="text-lg no-underline text-grey-darkest hover:text-blue-900 mx-3 {% if active == "blog-index" %}border-blue-900 text-blue-900 pb-1 border-b-2{% endif %}"
+        class="text-lg no-underline text-grey-darkest hover:text-blue-700 mx-3 {% if active == "blog-index" %}border-blue-700 text-blue-700 pb-1 border-b-2{% endif %}"
         >Blogs</a
       >
       {% if user.is_authenticated %}

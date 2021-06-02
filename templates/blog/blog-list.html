@@ -11,9 +11,12 @@
                     {{ post.published_date }}
                 </span>
             </h3>
+            {% if user.id == post.author.id %}
+                <a class="text-red-700 block px-1 py-2" href="{% url 'blogs.delete' post.id%}">Delete</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
-    <a class="border-solid border-2 border-purple-500 px-4 py-2 hover:bg-purple-500 hover:text-white" href="{% url 'blogs.index' %}">Back</a>
+    <a class="border-solid border-2 border-blue-500 mr-3 px-4 py-2 hover:bg-blue-700 hover:border-blue-700 hover:text-white" href="{% url 'blogs.index' %}">Back</a>
 </div>
 {% endblock content %}

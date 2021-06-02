@@ -30,13 +30,39 @@ def blogCreate(request):
             form = blogForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
-                post.author = User.objects.get(id=request.user.id)
-                print(post)
+                post.author = request.user
                 post.save()
-                messages.success(request, "Post created")
                 return redirect('blogs.index')
         else:
             form = blogForm()
         return render(request, 'blog/blog-form.html', {'form': form})
     else:
         return HttpResponse("Not allowed!!!")
+
+
+def blogEdit(request, id):
+    post = Post.objects.get(id=id)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = blogForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.save()
+                return redirect('blogs.index')
+        else:
+            form = blogForm(instance=post)
+        return render(request, 'blog/blog-edit.html', {'form': form})
+    else:
+        return HttpResponse("Not allowed!!!")
+
+
+def blogDelete(request, id):
+    post = Post.objects.get(id=id)
+    if request.user.id == post.author.id:
+        post.delete()
+        return redirect('blogs.index')
+    return HttpResponse("Not allowed")
+    
+
+    
