@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 from .models import Post
 from .forms import blogForm
 
+
 # Create your views here.
-
-
 def index(request):
     active = "blog-index"
     posts = Post.objects.all().order_by("-id")[:3]
@@ -46,8 +45,6 @@ def blogEdit(request, id):
         if request.method == 'POST':
             form = blogForm(request.POST, request.FILES, instance=post)
             if form.is_valid():
-                post = form.save(commit=False)
-                post.author = request.user
                 post.save()
                 return redirect('blogs.index')
         else:
@@ -62,7 +59,7 @@ def blogDelete(request, id):
     if request.user.id == post.author.id:
         post.delete()
         return redirect('blogs.index')
-    return HttpResponse("Not allowed")
+    return HttpResponse("Not allowed!!!")
     
 
     
