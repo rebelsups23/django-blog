@@ -1,5 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth import login, authenticate, logout
+from django.core.mail import send_mail
+from django.conf import settings
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import loginForm, signupForm
@@ -18,6 +20,14 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             if user is not None:
                 login(request, user)
+
+                # # Send email to the new user
+                # subject = 'Welcome to our site'
+                # message = 'Thank you for registering!!'
+                # email_from = settings.EMAIL_HOST_USER
+                # recipient_list = ['kimom20368@revutap.com',]    
+                # send_mail( subject, message, email_from, recipient_list )
+
                 return redirect('index')
     else:
         form = signupForm()
